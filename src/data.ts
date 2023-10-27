@@ -56,7 +56,7 @@ export const questions = [
     {
         id: 10,
         question: 'What is the capital of Russia?',
-        options: ['Saints Petersburg', 'Moscow', 'Sochi', 'Altay'],
+        options: ['St Petersburg', 'Moscow', 'Sochi', 'Altay'],
         answer: 1
     },
 
