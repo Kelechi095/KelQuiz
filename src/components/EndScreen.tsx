@@ -15,7 +15,7 @@ export default function EndScreen() {
 
   return (
     <div className="p-4 bg-darkBlue h-screen">
-      <h2 className="font-semibold font-mono mt-12 fond text-3xl text-center text-cyan-500">
+      <h2 className="font-semibold font-mono mt-12 fond text-xl text-center text-cyan-500">
         You scored: {userScore} / 100
       </h2>
 

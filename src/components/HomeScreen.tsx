@@ -29,21 +29,21 @@ export default function HomeScreen() {
         </h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 md: lg:grid-cols-4 p-4">
+      <div className="grid grid-cols-2 gap-2 md: lg:grid-cols-4 p-4 max-w-sm lg:max-w-2xl mx-auto">
         <button
-          className="mt-3 py-2 text-xs text-white border-2 border-green-500"
+          className="mt-3 py-2 text-sm text-white border-2 border-green-500"
           onClick={() => handleSelectCategory("BBNAIJA")}
         >
           Bbnaija
         </button>
         <button
-          className="mt-3 py-2 text-xs text-white border-2 border-blue-500"
+          className="mt-3 py-2 text-sm text-white border-2 border-blue-500"
           onClick={() => handleSelectCategory("GENERAL")}
         >
           General knowledge
         </button>
         <button
-          className="mt-3 text-xs py-2  text-white border-2 border-yellow-500"
+          className="mt-3 text-sm py-2  text-white border-2 border-yellow-500"
           onClick={() => handleSelectCategory("CAPITAL")}
         >
           Countries and Capital
