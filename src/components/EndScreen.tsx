@@ -49,7 +49,7 @@ export default function EndScreen() {
   </div>
       
       <h2 className="font-semibold font-mono mt-12 fond text-xl text-center text-cyan-500">
-        You answered {userScore} out of 10 questions
+        You answered {userScore / 10}  out of 10 questions
       </h2>
 
 
