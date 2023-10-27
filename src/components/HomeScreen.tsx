@@ -23,33 +23,33 @@ export default function HomeScreen() {
       </h1>
 
       <div>
-        <h2 className="text-lg font-medium max-w-md md:max-w-lg lg:max-w-3xl lg:text-xl text-center mx-auto p-3 lg:mt-8 text-cyan-600">
+        <h2 className="text-lg font-base max-w-md md:max-w-lg lg:max-w-3xl lg:text-xl text-center mx-auto p-3 lg:mt-8 text-cyan-600">
           Answer correctly in the quickest time. The faster you answer
           correctly, the higher your points!
         </h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-2 md: lg:grid-cols-4 p-4 max-w-sm lg:max-w-2xl mx-auto">
+      <div className="grid grid-cols-1 gap-2 md: lg:grid-cols-4 p-4 max-w-xs lg:max-w-2xl mx-auto">
         <button
-          className="mt-3 py-2 text-sm text-white border-2 border-green-500"
+          className="mt-3 py-2 text-sm text-white border border-green-500"
           onClick={() => handleSelectCategory("BBNAIJA")}
         >
           Bbnaija
         </button>
         <button
-          className="mt-3 py-2 text-sm text-white border-2 border-blue-500"
+          className="mt-3 py-2 text-sm text-white border border-blue-500"
           onClick={() => handleSelectCategory("GENERAL")}
         >
           General knowledge
         </button>
         <button
-          className="mt-3 text-sm py-2  text-white border-2 border-yellow-500"
+          className="mt-3 text-sm py-2  text-white border border-yellow-500"
           onClick={() => handleSelectCategory("CAPITAL")}
         >
           Countries and Capital
         </button>
         <button
-          className="mt-3 py-2 text-xs text-white border-2 border-red-500"
+          className="mt-3 py-2 text-xs text-white border border-red-500"
           onClick={() => handleSelectCategory("FOOTBALL")}
         >
           Football

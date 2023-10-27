@@ -83,13 +83,13 @@ export default function GameScreen() {
   return (
     <div className="p-4 py-6 h-screen bg-darkBlue">
       <div className="flex justify-between items-center px-4 mb-8">
-        <div className="flex border rounded-full h-12 w-12 justify-center items-center bg-cyan-600 border-none text-slate-200">
-          <h1 className="text-center font-semibold text-2xl">
+        <div className="flex rounded-full h-12 w-12 justify-center items-center border-2 border-cyan-500 text-slate-200">
+          <h1 className="text-center font-base text-2xl">
             {userScore} 
           </h1>
         </div>
         {!isPicked && (
-          <h1 className="text-center font-semibold text-2xl text-cyan-600">
+          <h1 className="text-center font-base text-2xl text-cyan-600">
             00:{setTimer(timer)}
           </h1>
         )}
@@ -97,15 +97,15 @@ export default function GameScreen() {
       <h1 className="text-center font-medium text-2xl font-serif text-slate-100 mt-8 mb-4">
         {questionIndex + 1}) {questions[questionIndex].question}
       </h1>
-      <div className="grid grid-cols-2 content-center gap-5 max-w-sm mx-auto lg:max-w-lg m-8">
+      <div className="grid grid-cols-1 content-center gap-5 max-w-sm mx-auto lg:max-w-lg m-8">
         {questions[questionIndex].options.map((option, index) => (
           <button
             className={
               isPicked && questions[questionIndex].answer === index
-                ? "border-2 text-sm md:text-sm lg:text-lg py-2 border-green-500 text-white"
+                ? "border text-sm md:text-sm lg:text-lg py-2 border-green-500 rounded text-white"
                 : isPicked && index === wrongAnswer
-                ? "border-2 text-sm md:text-sm lg:text-lg py-2 border-red-600 text-white"
-                : "border-2 text-sm md:text-sm lg:text-lg py-2 border-cyan-600 text-white"
+                ? "border text-sm rounded md:text-sm lg:text-lg py-2 border-red-600 text-white"
+                : "border text-sm rounded md:text-sm lg:text-lg py-2 border-cyan-600 text-white"
             }
             key={index}
             onClick={() =>
@@ -121,8 +121,8 @@ export default function GameScreen() {
         <button
           className={
             !isPicked
-              ? "py-1 p-8 text-white bg-gray-400 mt-4 rounded"
-              : "py-1 px-8 bg-cyan-600 mt-4 text-white rounded"
+              ? "py-1 p-8 text-white w-full max-w-sm border border-gray-600 mt-4 rounded"
+              : "py-1 px-8 border border-white w-full max-w-sm mt-4 text-white rounded"
           }
           onClick={handleNextQuestion}
           disabled={!isPicked}
@@ -134,13 +134,13 @@ export default function GameScreen() {
       </div>
       <div className="p-2 grid grid-cols-2 gap-3 max-w-sm mx-auto lg:max-w-lg m-10">
         <button
-          className="p-1 py-2 text-sm bg-cyan-600 text-white rounded"
+          className="p-1 py-2 text-sm bg-red-500 text-white rounded"
           onClick={handleEndGame}
         >
           End Quiz
         </button>
         <button
-          className=" p-1 text-sm px-4  bg-cyan-600 text-white rounded"
+          className=" p-1 text-sm px-4 bg-green-500 text-white rounded"
           onClick={handleRestartGame}
         >
           Restart Quiz
