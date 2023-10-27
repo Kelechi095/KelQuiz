@@ -82,14 +82,14 @@ export default function GameScreen() {
 
   return (
     <div className="p-4 py-6 h-screen bg-darkBlue">
-      <div className="flex justify-between items-center px-4 mb-8">
-        <div className="flex rounded-full h-9 w-9 justify-center items-center border-2 border-cyan-500 text-slate-200">
-          <h1 className="text-center font-base text-xl">
+      <div className="flex justify-between items-center px-2 mb-8">
+        <div className="flex rounded-full h-8 w-8 justify-center items-center border-2 border-cyan-500 text-slate-200">
+          <h1 className="text-center font-base text-lg">
             {userScore} 
           </h1>
         </div>
         {!isPicked && (
-          <h1 className="text-center font-base text-2xl text-cyan-600">
+          <h1 className="text-center font-base text-xl text-cyan-600">
             00:{setTimer(timer)}
           </h1>
         )}
@@ -121,8 +121,8 @@ export default function GameScreen() {
         <button
           className={
             !isPicked
-              ? "py-1 p-8 text-white w-full max-w-sm  bg-gray-700 mt-4 rounded"
-              : "py-1 px-8 bg-cyan-700 w-full max-w-sm mt-4 text-white rounded"
+              ? "py-2 p-8 text-white w-full max-w-sm  bg-gray-700 mt-4 rounded"
+              : "py-2 px-8 bg-cyan-700 w-full max-w-sm mt-4 text-white rounded"
           }
           onClick={handleNextQuestion}
           disabled={!isPicked}
@@ -134,13 +134,13 @@ export default function GameScreen() {
       </div>
       <div className="p-2 grid grid-cols-2 gap-3 max-w-sm mx-auto lg:max-w-lg m-10">
         <button
-          className="p-1 py-2 text-sm bg-red-500 text-white rounded"
+          className="p-1 py-2 text-sm bg-red-600 text-white rounded"
           onClick={handleEndGame}
         >
           End Quiz
         </button>
         <button
-          className=" p-1 text-sm px-4 bg-green-500 text-white rounded"
+          className=" p-1 text-sm px-4 bg-green-600 text-white rounded"
           onClick={handleRestartGame}
         >
           Restart Quiz

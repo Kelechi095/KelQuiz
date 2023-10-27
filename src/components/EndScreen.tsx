@@ -1,13 +1,19 @@
 import { useDispatch, useSelector } from "react-redux";
 import { endQuiz, startQuiz } from "../redux/quizSlice";
 import { RootState } from "../types/types";
+import { shuffle } from "../useGetQuestions";
+import useGetQuestions from "../useGetQuestions";
 
 export default function EndScreen() {
   const { userScore } = useSelector((state: RootState) => state.quiz);
   const dispatch = useDispatch();
 
+  const {questions} = useGetQuestions()
+
+
   const handleRestartGame = () => {
     dispatch(startQuiz());
+    shuffle(questions)
   };
   const handleEndGame = () => {
     dispatch(endQuiz());
