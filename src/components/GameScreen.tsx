@@ -11,14 +11,14 @@ import {
 import { RootState } from "../types/types";
 import { useEffect, useState } from "react";
 import useGetQuestions from "../useGetQuestions";
-import {shuffle} from "../useGetQuestions"
+import { shuffle } from "../useGetQuestions";
 
 export default function GameScreen() {
   const dispatch = useDispatch();
   const [isPicked, setIsPicked] = useState<boolean>(false);
   const [wrongAnswer, setWrongAnswer] = useState<number | null>(null);
 
-  const {questions} = useGetQuestions()
+  const { questions } = useGetQuestions();
 
   const { questionIndex, userScore, timer } = useSelector(
     (state: RootState) => state.quiz
@@ -26,12 +26,12 @@ export default function GameScreen() {
 
   const handleEndGame = () => {
     dispatch(endQuiz());
-    shuffle(questions)
+    shuffle(questions);
   };
   const handleRestartGame = () => {
     dispatch(startQuiz());
-    setIsPicked(false)
-    shuffle(questions)
+    setIsPicked(false);
+    shuffle(questions);
   };
 
   const handleCheckAnswer = (answer: number, index: number) => {
@@ -85,9 +85,7 @@ export default function GameScreen() {
     <div className="p-4 py-6 bg-darkBlue">
       <div className="flex justify-between items-center px-2 mb-8">
         <div className="flex rounded-full h-8 w-8 justify-center items-center border-2 border-cyan-500 text-slate-200">
-          <h1 className="text-center font-base text-md">
-            {userScore} 
-          </h1>
+          <h1 className="text-center font-base text-md">{userScore}</h1>
         </div>
         {!isPicked && (
           <h1 className="text-center font-base text-xl text-red-600">
@@ -146,11 +144,6 @@ export default function GameScreen() {
         >
           Restart Quiz
         </button>
-      </div>
-      <div>
-        <h2 className="text-center font-bold font-mono text-xl text-cyan-600 mb-8">
-          KELQUIZ
-        </h2>
       </div>
     </div>
   );

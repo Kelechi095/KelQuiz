@@ -48,7 +48,7 @@ export default function HomeScreen() {
           Countries & Capital
         </button>
         <button
-          className="mt-3 py-2 text-sm text-white border rounded border-blue-600"
+          className="mt-3 py-2 text-sm text-white border rounded border-cyan-600"
           onClick={() => handleSelectCategory("CHICHI")}
         >
           Football
