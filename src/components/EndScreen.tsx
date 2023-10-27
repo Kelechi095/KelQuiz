@@ -40,7 +40,7 @@ export default function EndScreen() {
 
     
     // Colors
-    pathColor: ` ${userScore <= 30 ? 'red' : userScore > 30 && userScore <= 60 ? 'rgb(14 116 144)' : userScore > 60 && userScore <= 80 ? 'yellow' : 'green' }`,
+    pathColor: ` rgb(14 116 144)`,
     textColor: 'rgb(14 116 144)',
     trailColor: '#d6d6d6',
     backgroundColor: 'cyan',
