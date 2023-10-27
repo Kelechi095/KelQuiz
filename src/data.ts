@@ -79,13 +79,13 @@ export const capitals = [
     },
     {
       id: 14,
-      question: "What is the capital Portugal?",
+      question: "What is the capital of Portugal?",
       options: ["Lisbon", "Porto", "Madrid", "Athens"],
       answer: 0,
     },
     {
       id: 15,
-      question: "What is Netherlands?",
+      question: "What is the capital of Netherlands?",
       options: ["Lisbon", "Dunkirk", "Armsterdam", "Sochi"],
       answer: 2,
     },

@@ -83,8 +83,8 @@ export default function GameScreen() {
   return (
     <div className="p-4 py-6 h-screen bg-darkBlue">
       <div className="flex justify-between items-center px-4 mb-8">
-        <div className="flex rounded-full h-12 w-12 justify-center items-center border-2 border-cyan-500 text-slate-200">
-          <h1 className="text-center font-base text-2xl">
+        <div className="flex rounded-full h-9 w-9 justify-center items-center border-2 border-cyan-500 text-slate-200">
+          <h1 className="text-center font-base text-xl">
             {userScore} 
           </h1>
         </div>
@@ -121,8 +121,8 @@ export default function GameScreen() {
         <button
           className={
             !isPicked
-              ? "py-1 p-8 text-white w-full max-w-sm border border-gray-600 mt-4 rounded"
-              : "py-1 px-8 border border-white w-full max-w-sm mt-4 text-white rounded"
+              ? "py-1 p-8 text-white w-full max-w-sm  bg-gray-700 mt-4 rounded"
+              : "py-1 px-8 bg-cyan-700 w-full max-w-sm mt-4 text-white rounded"
           }
           onClick={handleNextQuestion}
           disabled={!isPicked}

@@ -23,7 +23,7 @@ export default function HomeScreen() {
       </h1>
 
       <div>
-        <h2 className="text-lg font-base max-w-md md:max-w-lg lg:max-w-3xl lg:text-xl text-center mx-auto p-3 lg:mt-8 text-cyan-600">
+        <h2 className="text-lg font-base max-w-md md:max-w-lg lg:max-w-3xl lg:text-xl text-center mx-auto p-3 lg:mt-8 text-slate-100">
           Answer correctly in the quickest time. The faster you answer
           correctly, the higher your points!
         </h2>
