@@ -32,7 +32,7 @@ const quizSlice = createSlice({
     },
     increaseUserScore: (state, action) => {
       if (action.payload > 0) {
-        state.userScore = state.userScore + action.payload;
+        state.userScore = state.userScore + 10;
       } 
     },
     setCategory: (state, action) => {

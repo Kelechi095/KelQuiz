@@ -103,9 +103,9 @@ export default function GameScreen() {
           <button
             className={
               isPicked && questions[questionIndex].answer === index
-                ? "border text-sm md:text-sm lg:text-lg py-2 border-green-500 rounded text-white"
+                ? "border-2 text-sm md:text-sm lg:text-lg py-2 border-green-500 rounded text-white"
                 : isPicked && index === wrongAnswer
-                ? "border text-sm rounded md:text-sm lg:text-lg py-2 border-red-600 text-white"
+                ? "border-2 text-sm rounded md:text-sm lg:text-lg py-2 border-red-600 text-white"
                 : "border text-sm rounded md:text-sm lg:text-lg py-2 border-cyan-600 text-white"
             }
             key={index}
