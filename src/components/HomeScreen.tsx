@@ -15,17 +15,16 @@ export default function HomeScreen() {
     <div className="p-2 h-screen bg-darkBlue">
       <nav className="p-4 flex items-center justify-center">
         <h2 className="font-mono tracking-wide text-xl font-bold text-cyan-600">
-          QUIZDOWN
+          KELQUIZ
         </h2>
       </nav>
-      <h1 className="text-4xl max-w-xs mx-auto text-center mt-12 md:text-6xl lg:text-7xl md:max-w-lg  lg:max-w-4xl font-serif p-2 text-white">
-        Welcome to Quiz Down
+      <h1 className="text-4xl max-w-xs mx-auto text-center mt-2 md:text-6xl lg:text-7xl md:max-w-lg  lg:max-w-4xl font-serif p-2 text-white">
+        Welcome to KelQuiz
       </h1>
 
       <div>
-        <h2 className="text-lg font-base max-w-md md:max-w-lg lg:max-w-3xl lg:text-xl text-center mx-auto p-3 lg:mt-8 text-slate-100">
-          Answer correctly in the quickest time. The faster you answer
-          correctly, the higher your points!
+        <h2 className="text-lg font-base max-w-md md:max-w-lg lg:max-w-3xl lg:text-xl font-semibold text-center mx-auto mt-10 p-3 lg:mt-8 text-cyan-600">
+          PICK A CATEGORY
         </h2>
       </div>
 
@@ -49,10 +48,10 @@ export default function HomeScreen() {
           Countries & Capital
         </button>
         <button
-          className="mt-3 py-2 text-xs text-white border border-red-500"
-          onClick={() => handleSelectCategory("FOOTBALL")}
+          className="mt-3 py-2 text-sm text-white border border-red-500"
+          onClick={() => handleSelectCategory("CHICHI")}
         >
-          Football
+          Chinyere Awoms
         </button>
       </div>
     </div>

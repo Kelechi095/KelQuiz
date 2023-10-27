@@ -1,14 +1,14 @@
 import { useSelector } from "react-redux";
 import { Quiz, RootState } from "./types/types";
 
-import { generals, bbnaijas, capitals } from "./data";
+import { generals, bbnaijas, capitals, chichis } from "./data";
 
 export function shuffle(array: Quiz[]) {
   let currentIndex = array.length,
     randomIndex;
 
   while (currentIndex > 0) {
-    
+
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
 
@@ -24,6 +24,7 @@ export function shuffle(array: Quiz[]) {
 const capitalQuestions = shuffle(capitals);
 const bbnaijaQuestions = shuffle(bbnaijas);
 const generalQuestions = shuffle(generals);
+const chichiQuestions = shuffle(chichis);
 
 const getQuestions = (arg: Quiz[]) => {
   const questions = arg;
@@ -38,6 +39,8 @@ export default function useGetQuestions() {
       ? bbnaijaQuestions
       : category === "GENERAL"
       ? generalQuestions
+      : category === "CHICHI" 
+      ? chichiQuestions
       : capitalQuestions
   );
 

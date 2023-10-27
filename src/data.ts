@@ -215,3 +215,66 @@ export const capitals = [
       answer: 0,
     },
   ];
+
+  export const chichis = [
+    {
+      id: 1,
+      question: "When will you die?",
+      options: ["Tomorrow", "Today", "On the flight", "2 hours time"],
+      answer: 1,
+    },
+    {
+      id: 2,
+      question: "What doesn't make sense?",
+      options: ["Your face", "My quiz game", "Your stupid boyfriend", "Your stomach"],
+      answer: 0,
+    },
+    {
+      id: 3,
+      question: "Are you color blind?",
+      options: ["Yes", "Maybe", "No", "Pere"],
+      answer: 0,
+    },
+    {
+      id: 4,
+      question: "Chichi Awoms is?",
+      options: ["A bitch", "An idiot", "A stupid bastard", "Fat fool"],
+      answer: 3,
+    },
+    {
+      id: 5,
+      question: "How many children will you have?",
+      options: ["Two", "Zero", "One", "Twenty five"],
+      answer: 1,
+    },
+    {
+      id: 6,
+      question: "When will Prudence leave you?",
+      options: ["After you marry", "Next year", "Never", "Two weeks from now"],
+      answer: 3,
+    },
+    {
+      id: 7,
+      question: "Who will you marry?",
+      options: ["No one", "Prudence", "Tega", "Chidi Okorafor"],
+      answer: 0,
+    },
+    {
+      id: 8,
+      question: "Who will kill you?",
+      options: ["Car", "Kelechi", "Prudence", "Armed Robbers"],
+      answer: 1,
+    },
+    {
+      id: 9,
+      question: "How much does Kelechi hate you?",
+      options: ["100%", "50%", "Unquantifiable", "0%"],
+      answer: 2,
+    },
+    {
+      id: 10,
+      question: "When will you lose all your jobs",
+      options: ["Two weeks from now", "Soon", "Next year", "Never"],
+      answer: 0,
+    },
+  ];
