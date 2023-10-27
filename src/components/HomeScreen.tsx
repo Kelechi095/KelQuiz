@@ -34,7 +34,7 @@ export default function HomeScreen() {
           className="mt-3 py-2 text-sm text-white border border-green-500"
           onClick={() => handleSelectCategory("BBNAIJA")}
         >
-          Bbnaija
+          Big Brother Naija
         </button>
         <button
           className="mt-3 py-2 text-sm text-white border border-blue-500"
@@ -46,7 +46,7 @@ export default function HomeScreen() {
           className="mt-3 text-sm py-2  text-white border border-yellow-500"
           onClick={() => handleSelectCategory("CAPITAL")}
         >
-          Countries and Capital
+          Countries & Capital
         </button>
         <button
           className="mt-3 py-2 text-xs text-white border border-red-500"

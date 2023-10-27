@@ -157,7 +157,7 @@ export const capitals = [
     {
       id: 1,
       question: "Who won BBNaija Pepperdem?",
-      options: ["Phyna", "WhiteMoney", "Mercy", "Miracle"],
+      options: ["Phyna", "White Money", "Mercy", "Miracle"],
       answer: 2,
     },
     {
@@ -169,7 +169,7 @@ export const capitals = [
     {
       id: 3,
       question: "Who came second in BBNaija Shine Your Eye",
-      options: ["Whitemoney", "Liquorose", "Emma", "Pere"],
+      options: ["White Money", "Liquorose", "Emma", "Pere"],
       answer: 1,
     },
     {
@@ -211,7 +211,7 @@ export const capitals = [
     {
       id: 10,
       question: "Who won BBNaija Shine your eye",
-      options: ["Whitemoney", "Laycon", "Ilebaye", "Mercy"],
+      options: ["White Money", "Laycon", "Ilebaye", "Mercy"],
       answer: 0,
     },
   ];
