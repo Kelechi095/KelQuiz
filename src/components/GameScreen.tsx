@@ -123,7 +123,7 @@ export default function GameScreen() {
           className={
             !isPicked
               ? "py-2 p-8 text-white w-full max-w-sm  bg-gray-700 mt-4 rounded"
-              : "py-2 px-8 bg-cyan-800 w-full max-w-sm mt-4 text-white rounded"
+              : "py-2 px-8 bg-cyan-700 w-full max-w-sm mt-4 text-white rounded"
           }
           onClick={handleNextQuestion}
           disabled={!isPicked}

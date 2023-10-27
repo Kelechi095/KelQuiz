@@ -30,19 +30,19 @@ export default function HomeScreen() {
 
       <div className="grid grid-cols-1 gap-2 md: lg:grid-cols-4 p-4 max-w-xs lg:max-w-2xl mx-auto">
         <button
-          className="mt-3 py-2 text-sm text-white border rounded border-blue-600"
+          className="mt-3 py-2 text-sm text-white border rounded border-cyan-600"
           onClick={() => handleSelectCategory("BBNAIJA")}
         >
           Big Brother Naija
         </button>
         <button
-          className="mt-3 py-2 text-sm text-white border rounded border-blue-600"
+          className="mt-3 py-2 text-sm text-white border rounded border-cyan-600"
           onClick={() => handleSelectCategory("GENERAL")}
         >
           General knowledge
         </button>
         <button
-          className="mt-3 text-sm py-2  text-white border rounded border-blue-600"
+          className="mt-3 text-sm py-2  text-white border rounded border-cyan-600"
           onClick={() => handleSelectCategory("CAPITAL")}
         >
           Countries & Capital
