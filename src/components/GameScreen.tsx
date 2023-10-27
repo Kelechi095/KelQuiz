@@ -8,14 +8,17 @@ import {
   startTimer,
 } from "../redux/quizSlice";
 
-import { questions } from "../data";
 import { RootState } from "../types/types";
 import { useEffect, useState } from "react";
+import useGetQuestions from "../useGetQuestions";
+import {shuffle} from "../useGetQuestions"
 
 export default function GameScreen() {
   const dispatch = useDispatch();
   const [isPicked, setIsPicked] = useState<boolean>(false);
   const [wrongAnswer, setWrongAnswer] = useState<number | null>(null);
+
+  const {questions} = useGetQuestions()
 
   const { questionIndex, userScore, timer } = useSelector(
     (state: RootState) => state.quiz
@@ -26,6 +29,8 @@ export default function GameScreen() {
   };
   const handleRestartGame = () => {
     dispatch(startQuiz());
+    setIsPicked(false)
+    shuffle(questions)
   };
 
   const handleCheckAnswer = (answer: number, index: number) => {
@@ -90,17 +95,17 @@ export default function GameScreen() {
         )}
       </div>
       <h1 className="text-center font-medium text-2xl font-serif text-slate-100 ">
-        {questions[questionIndex].question}
+        {questionIndex + 1}) {questions[questionIndex].question}
       </h1>
       <div className="grid grid-cols-2 content-center gap-5 max-w-sm mx-auto lg:max-w-lg">
         {questions[questionIndex].options.map((option, index) => (
           <button
             className={
               isPicked && questions[questionIndex].answer === index
-                ? "border-2 text-sm md:text-sm lg:text-lg py-2 border-green-500 px-8 text-white"
+                ? "border-2 text-sm md:text-sm lg:text-lg py-2 border-green-500 px-14 text-white"
                 : isPicked && index === wrongAnswer
-                ? "border-2 text-sm md:text-sm lg:text-lg py-2 px-8 border-red-600 text-white"
-                : "border-2 text-sm md:text-sm lg:text-lg py-2 px-8 border-cyan-600 text-white"
+                ? "border-2 text-sm md:text-sm lg:text-lg py-2 px-14 border-red-600 text-white"
+                : "border-2 text-sm md:text-sm lg:text-lg py-2 px-14 border-cyan-600 text-white"
             }
             key={index}
             onClick={() =>

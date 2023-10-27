@@ -5,6 +5,7 @@ const initialState = {
   questionIndex: 0,
   userScore: 0,
   timer: 10,
+  category: null
 };
 
 const quizSlice = createSlice({
@@ -34,6 +35,13 @@ const quizSlice = createSlice({
         state.userScore = state.userScore + action.payload;
       } 
     },
+    setCategory: (state, action) => {
+      state.category = action.payload
+      state.gameState = "start";
+      state.questionIndex = 0;
+      state.userScore = 0;
+      state.timer = 10;
+    },
 
     startTimer: (state) => {
       state.timer = state.timer - 1;
@@ -48,6 +56,7 @@ export const {
   nextQuestion,
   increaseUserScore,
   startTimer,
+  setCategory
 } = quizSlice.actions;
 
 export default quizSlice.reducer;
