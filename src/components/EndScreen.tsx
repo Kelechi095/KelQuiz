@@ -17,6 +17,7 @@ export default function EndScreen() {
   };
   const handleEndGame = () => {
     dispatch(endQuiz());
+    shuffle(questions)
   };
 
   return (

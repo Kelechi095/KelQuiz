@@ -26,6 +26,7 @@ export default function GameScreen() {
 
   const handleEndGame = () => {
     dispatch(endQuiz());
+    shuffle(questions)
   };
   const handleRestartGame = () => {
     dispatch(startQuiz());
