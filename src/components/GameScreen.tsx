@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 export default function GameScreen() {
   const dispatch = useDispatch();
   const [isPicked, setIsPicked] = useState<boolean>(false);
-  const [wrongAnswer, setWrongAnswer] = useState<number | null>(null)
+  const [wrongAnswer, setWrongAnswer] = useState<number | null>(null);
 
   const { questionIndex, userScore, timer } = useSelector(
     (state: RootState) => state.quiz
@@ -32,21 +32,19 @@ export default function GameScreen() {
     if (answer === index) {
       dispatch(increaseUserScore(timer));
       setIsPicked(true);
-      //clearTimeout(id);
     } else {
-      //clearTimeout(id);
       setIsPicked(true);
-      setWrongAnswer(index)
+      setWrongAnswer(index);
     }
   };
 
   const handleNextQuestion = () => {
     if (questionIndex === questions.length - 1) {
       dispatch(finishQuiz());
-      setWrongAnswer(null)
+      setWrongAnswer(null);
     } else {
       dispatch(nextQuestion());
-      setWrongAnswer(null)
+      setWrongAnswer(null);
     }
   };
 
@@ -65,10 +63,10 @@ export default function GameScreen() {
   }, [questionIndex]);
 
   useEffect(() => {
-    if(timer === 0) {
-      handleNextQuestion()
+    if (timer === 0) {
+      handleNextQuestion();
     }
-  })
+  });
 
   const setTimer = (timer: number) => {
     if (timer < 10) {
@@ -85,9 +83,11 @@ export default function GameScreen() {
             {userScore} {/* {userScore === 1 ? "Point" : "Points"} */}
           </h1>
         </div>
-        {!isPicked && <h1 className="text-center font-semibold text-2xl text-cyan-600">
-          00:{setTimer(timer)}
-        </h1>}
+        {!isPicked && (
+          <h1 className="text-center font-semibold text-2xl text-cyan-600">
+            00:{setTimer(timer)}
+          </h1>
+        )}
       </div>
       <h1 className="text-center font-medium text-2xl font-serif text-slate-100 ">
         {questions[questionIndex].question}
@@ -98,7 +98,8 @@ export default function GameScreen() {
             className={
               isPicked && questions[questionIndex].answer === index
                 ? "border-2 text-sm md:text-sm lg:text-lg py-2 border-green-500 px-8 text-white"
-                : isPicked && index === wrongAnswer ? "border-2 text-sm md:text-sm lg:text-lg py-2 px-8 border-red-600 text-white"
+                : isPicked && index === wrongAnswer
+                ? "border-2 text-sm md:text-sm lg:text-lg py-2 px-8 border-red-600 text-white"
                 : "border-2 text-sm md:text-sm lg:text-lg py-2 px-8 border-cyan-600 text-white"
             }
             key={index}
@@ -141,7 +142,9 @@ export default function GameScreen() {
         </button>
       </div>
       <div>
-        <h2 className="text-center font-bold font-mono text-xl text-cyan-600 mb-8">QUIZ DOWN</h2>
+        <h2 className="text-center font-bold font-mono text-xl text-cyan-600 mb-8">
+          QUIZ DOWN
+        </h2>
       </div>
     </div>
   );
