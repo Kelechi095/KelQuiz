@@ -83,20 +83,20 @@ export default function GameScreen() {
 
   return (
     <div className="p-4 py-6 bg-darkBlue h-screen">
-      <div className="flex justify-between items-center px-2 mb-8">
-        <div className="flex rounded-full h-8 w-8 justify-center items-center border-2 border-cyan-500 text-slate-200">
-          <h1 className="text-center font-base text-md">{userScore}</h1>
+      <div className="flex justify-between items-center px-2 mb-8 lg:px-6">
+        <div className="flex rounded-full h-8 w-8 lg: 16 lg:16 justify-center items-center border-2 border-cyan-500 text-slate-200">
+          <h1 className="text-center font-base text-md lg:text-xl">{userScore}</h1>
         </div>
         {!isPicked && (
-          <h1 className="text-center font-base text-xl text-red-600">
+          <h1 className="text-center font-base text-xl lg:text-2xl text-red-600">
             00:{setTimer(timer)}
           </h1>
         )}
       </div>
-      <h1 className="text-center font-medium text-2xl font-serif text-slate-100 mt-8 mb-4">
+      <h1 className="text-center font-medium text-2xl font-serif text-slate-100 mt-8 mb-4 lg:text-4xl">
         {questionIndex + 1}) {questions[questionIndex].question}
       </h1>
-      <div className="grid grid-cols-1 content-center gap-5 max-w-sm mx-auto lg:max-w-lg m-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 content-center gap-5 max-w-sm lg:max-w-lg mx-auto m-8 lg:mt-12">
         {questions[questionIndex].options.map((option, index) => (
           <button
             className={
@@ -120,8 +120,8 @@ export default function GameScreen() {
         <button
           className={
             !isPicked
-              ? "py-2 p-8 text-white w-full max-w-sm  bg-gray-700 mt-4 rounded"
-              : "py-2 px-8 bg-cyan-700 w-full max-w-sm mt-4 text-white rounded"
+              ? "py-2 p-8 text-white w-full max-w-sm lg:max-w-lg bg-gray-700 mt-4 rounded"
+              : "py-2 px-8 bg-cyan-700 w-full max-w-sm lg:max-w-lg mt-4 text-white rounded"
           }
           onClick={handleNextQuestion}
           disabled={!isPicked}
