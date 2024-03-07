@@ -10,31 +10,61 @@ import {
 
 import { RootState } from "../types/types";
 import { useEffect, useState } from "react";
-import useGetQuestions from "../useGetQuestions";
-import { shuffle } from "../useGetQuestions";
+import axios from "axios";
+import { removeQuot } from "../utils/removeQuot";
+import Options from "./Options";
+
+type Questions = {
+  type: string;
+  difficulty: string;
+  category: string;
+  question: string;
+  correct_answer: string;
+  incorrect_answers: string[];
+};
 
 export default function GameScreen() {
   const dispatch = useDispatch();
   const [isPicked, setIsPicked] = useState<boolean>(false);
   const [wrongAnswer, setWrongAnswer] = useState<number | null>(null);
+  const [questions, setQuestions] = useState<Questions[] | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const { questions } = useGetQuestions();
-
-  const { questionIndex, userScore, timer } = useSelector(
+  const { category, questionIndex, userScore, timer } = useSelector(
     (state: RootState) => state.quiz
   );
 
+  const URL =
+    category === "GK"
+      ? "https://opentdb.com/api.php?amount=10&category=9"
+      : category === "BOOKS"
+      ? "https://opentdb.com/api.php?amount=10&category=10"
+      : "";
+
+  useEffect(() => {
+    const getQuestions = async () => {
+      setIsLoading(true);
+      try {
+        const data = await axios.get(URL);
+        setQuestions(data.data.results);
+        setIsLoading(false);
+      } catch (err) {
+        console.log(err);
+        setIsLoading(false);
+      }
+    };
+    getQuestions();
+  }, [URL]);
+
   const handleEndGame = () => {
     dispatch(endQuiz());
-    shuffle(questions);
   };
   const handleRestartGame = () => {
     dispatch(startQuiz());
     setIsPicked(false);
-    shuffle(questions);
   };
 
-  const handleCheckAnswer = (answer: number, index: number) => {
+  const handleCheckAnswer = (answer: number | string, index: number) => {
     if (answer === index) {
       dispatch(increaseUserScore(timer));
       setIsPicked(true);
@@ -45,7 +75,7 @@ export default function GameScreen() {
   };
 
   const handleNextQuestion = () => {
-    if (questionIndex === questions.length - 1) {
+    if (questions && questionIndex === questions.length - 1) {
       dispatch(finishQuiz());
       setWrongAnswer(null);
     } else {
@@ -55,14 +85,14 @@ export default function GameScreen() {
   };
 
   useEffect(() => {
-    if (timer > 0) {
+    if (questions && timer > 0) {
       const id = setInterval(() => {
         dispatch(startTimer());
       }, 1000);
 
       return () => clearInterval(id);
     }
-  }, [dispatch, timer]);
+  }, [dispatch, timer, questions]);
 
   useEffect(() => {
     setIsPicked(false);
@@ -81,11 +111,15 @@ export default function GameScreen() {
     return timer;
   };
 
+  if(isLoading) return <h2>Loading...</h2>
+
   return (
     <div className="p-4 py-6 bg-darkBlue h-screen">
       <div className="flex justify-between items-center px-2 mb-8 lg:px-6">
         <div className="flex rounded-full h-8 w-8 lg: 16 lg:16 justify-center items-center border-2 border-cyan-500 text-slate-200">
-          <h1 className="text-center font-base text-md lg:text-xl">{userScore}</h1>
+          <h1 className="text-center font-base text-md lg:text-xl">
+            {userScore}
+          </h1>
         </div>
         {!isPicked && (
           <h1 className="text-center font-base text-xl lg:text-2xl text-red-600">
@@ -93,29 +127,23 @@ export default function GameScreen() {
           </h1>
         )}
       </div>
-      <h1 className="text-center font-medium text-2xl font-serif text-slate-100 mt-8 mb-4 lg:text-4xl">
-        {questionIndex + 1}) {questions[questionIndex].question}
-      </h1>
-      <div className="grid grid-cols-1 lg:grid-cols-2 content-center gap-5 max-w-sm lg:max-w-lg mx-auto m-8 lg:mt-12">
-        {questions[questionIndex].options.map((option, index) => (
-          <button
-            className={
-              isPicked && questions[questionIndex].answer === index
-                ? "border-2 text-sm md:text-sm lg:text-lg py-2 border-green-500 rounded text-white"
-                : isPicked && index === wrongAnswer
-                ? "border-2 text-sm rounded md:text-sm lg:text-lg py-2 border-red-600 text-white"
-                : "border text-sm rounded md:text-sm lg:text-lg py-2 border-cyan-600 text-white"
-            }
-            key={index}
-            onClick={() =>
-              handleCheckAnswer(questions[questionIndex].answer, index)
-            }
-            disabled={isPicked === true}
-          >
-            {option}
-          </button>
-        ))}
-      </div>
+      {questions && (
+        <h1 className="text-center font-medium text-2xl font-serif text-slate-100 mt-8 mb-4 lg:text-4xl">
+          {questionIndex + 1}){" "}
+          {removeQuot(questions[questionIndex].question)}
+        </h1>
+      )}
+
+      {questions && (
+        <Options
+          incorrectOptions={questions[questionIndex].incorrect_answers}
+          correctOption={questions[questionIndex].correct_answer}
+          isPicked={isPicked}
+          wrongAnswer={wrongAnswer}
+          handleCheckAnswer={handleCheckAnswer}
+        />
+      )}
+
       <div className="flex justify-center">
         <button
           className={
@@ -126,7 +154,7 @@ export default function GameScreen() {
           onClick={handleNextQuestion}
           disabled={!isPicked}
         >
-          {questionIndex === questions.length - 1
+          {questions && questionIndex === questions.length - 1
             ? "Finish Quiz"
             : "Next Question"}
         </button>
