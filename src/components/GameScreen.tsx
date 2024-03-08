@@ -8,7 +8,7 @@ import {
   startTimer,
 } from "../redux/quizSlice";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { removeQuot } from "../utils/removeQuot";
 import Options from "./Options";
 import useGetQuiz from "../hooks/useGetQuiz";
@@ -16,41 +16,43 @@ import { useQueryClient } from "react-query";
 import useGetQuestions from "../hooks/useGetQuestions";
 import Loading from "./Loading";
 
- 
 export default function GameScreen() {
   const dispatch = useDispatch();
   const [isPicked, setIsPicked] = useState<boolean>(false);
   const [wrongAnswer, setWrongAnswer] = useState<string | null>(null);
 
-  const {questionIndex, userScore, timer } = useGetQuiz();
+  const { questionIndex, userScore, timer } = useGetQuiz();
 
-  const queryClient = useQueryClient()
+  const queryClient = useQueryClient();
 
-  const {questions, refetch, isLoading, isFetching} = useGetQuestions()
-  
-  const handleEndGame = () => {
+  const { questions, refetch, isLoading, isFetching } = useGetQuestions();
+
+  const handleEndGame = useCallback(() => {
     dispatch(endQuiz());
-    queryClient.invalidateQueries('questions')
-  };
+    queryClient.invalidateQueries("questions");
+  }, [dispatch, queryClient]);
 
-  const handleRestartGame = () => {
-    queryClient.invalidateQueries("question")
-    refetch()
+  const handleRestartGame = useCallback(() => {
+    queryClient.invalidateQueries("question");
+    refetch();
     dispatch(startQuiz());
     setIsPicked(false);
-  };
+  }, [dispatch, queryClient, refetch]);
 
-  const handleCheckAnswer = (answer: string, correctOption: string) => {
-    if (answer === correctOption) {
-      dispatch(increaseUserScore(timer));
-      setIsPicked(true);
-    } else {
-      setIsPicked(true);
-      setWrongAnswer(answer);
-    }
-  };
+  const handleCheckAnswer = useCallback(
+    (answer: string, correctOption: string) => {
+      if (answer === correctOption) {
+        dispatch(increaseUserScore(timer));
+        setIsPicked(true);
+      } else {
+        setIsPicked(true);
+        setWrongAnswer(answer);
+      }
+    },
+    [dispatch, timer]
+  );
 
-  const handleNextQuestion = () => {
+  const handleNextQuestion = useCallback(() => {
     if (questions && questionIndex === questions.length - 1) {
       dispatch(finishQuiz());
       setWrongAnswer(null);
@@ -58,7 +60,7 @@ export default function GameScreen() {
       dispatch(nextQuestion());
       setWrongAnswer(null);
     }
-  };
+  }, [dispatch, questionIndex, questions]);
 
   useEffect(() => {
     if (questions && timer > 0) {
@@ -80,18 +82,18 @@ export default function GameScreen() {
     }
   });
 
-  const setTimer = (timer: number) => {
+  const setTimer = useCallback((timer: number) => {
     if (timer < 10) {
       return `0${timer}`;
     }
     return timer;
-  };
+  }, []);
 
-  if (isLoading || isFetching) return <Loading />
+  if (isLoading || isFetching) return <Loading />;
 
   return (
-    <div className="p-4 py-6 bg-zinc-900 h-screen">
-      <div className="flex justify-between items-center px-2 mt-2 mb-12 lg:px-6">
+    <div className="p-4 py-6 bg-zinc-900 md:h-screen">
+      <section className="flex justify-between items-center px-2 mt-2 mb-12 lg:px-6">
         <div className="flex rounded-full h-8 w-8 lg: 16 lg:16 justify-center items-center border-2 border-purple-200 text-white">
           <h1 className="text-center font-base text-md lg:text-xl">
             {userScore}
@@ -102,7 +104,7 @@ export default function GameScreen() {
             00:{setTimer(timer)}
           </h1>
         )}
-      </div>
+      </section>
       {questions && (
         <h1 className="text-center font-medium text-2xl font-serif text-slate-100 mt-8 mb-4 lg:text-4xl md:max-w-[80%] mx-auto">
           {questionIndex + 1}) {removeQuot(questions[questionIndex].question)}
@@ -119,12 +121,12 @@ export default function GameScreen() {
         />
       )}
 
-      <div className="flex justify-center">
+      <section className="flex justify-center">
         <button
           className={
             !isPicked
               ? "p-2 text-white w-full lg:max-w-[70%] bg-zinc-800 mt-4 rounded font-semibold md:text-lg text-sm"
-              : "p-2 bg-zinc-800 w-full lg:max-w-[70%] mt-4 text-white rounded"
+              : "p-2 bg-zinc-800 w-full lg:max-w-[70%] mt-4 text-white rounded text-sm font-semibold md:text-lg"
           }
           onClick={handleNextQuestion}
           disabled={!isPicked}
@@ -133,8 +135,8 @@ export default function GameScreen() {
             ? "Finish Quiz"
             : "Next Question"}
         </button>
-      </div>
-      <div className="grid grid-cols-2 gap-3 mx-auto w-full md:max-w-[70%] mt-10">
+      </section>
+      <section className="grid grid-cols-2 gap-3 mx-auto w-full md:max-w-[70%] mt-10">
         <button
           className=" p-2 text-sm bg-zinc-800 text-white md:text-lg font-semibold rounded"
           onClick={handleEndGame}
@@ -147,7 +149,7 @@ export default function GameScreen() {
         >
           Restart Quiz
         </button>
-      </div>
+      </section>
     </div>
   );
 }

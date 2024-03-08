@@ -7,7 +7,7 @@ export default function HomeScreen() {
     "text-violet-500",
     "text-pink-500",
     "text-purple-500",
-    "text-blue-500"
+    "text-blue-500",
   ];
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function HomeScreen() {
         WELCOME TO KELQUIZ
       </h1>
 
-      <div>
+      <section>
         <h2
           className={`text-lg md:text-xl p-2 w-fit mx-auto font-mono font-semibold
           ${colorArr[colorIndex]} 
@@ -35,9 +35,9 @@ export default function HomeScreen() {
         >
           PICK A CATEGORY
         </h2>
-      </div>
+      </section>
 
-      <div className="grid grid-cols-1 gap-4 md:lg:grid-cols-4 md:p-4 p-4 md:max-w-6xl mx-auto border border-dashed border-neutral-500 md:mt-3 mb-6 ">
+      <section className="grid grid-cols-1 gap-4 md:lg:grid-cols-4 md:p-4 p-4 md:max-w-6xl mx-auto border border-dashed border-neutral-500 md:mt-3 mb-6 ">
         <CategoryBtn category="GK" title="General Knowledge" />
         <CategoryBtn category="BOOKS" title="Books" />
         <CategoryBtn category="CELEBRITIES" title="Celebrities" />
@@ -54,7 +54,7 @@ export default function HomeScreen() {
         <CategoryBtn category="ANIME" title="Anime/Manga" />
         <CategoryBtn category="CARTOONS" title="Cartoons" />
         <CategoryBtn category="GEOGRAPHY" title="Geography" />
-      </div>
+      </section>
     </div>
   );
 }
