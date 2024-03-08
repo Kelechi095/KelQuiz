@@ -39,15 +39,15 @@ const Options = ({
   );
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 content-center gap-5 max-w-sm lg:max-w-lg mx-auto m-8 lg:mt-12">
+    <div className="grid grid-cols-1 lg:grid-cols-2 content-center gap-5  md:max-w-[70%] mx-auto m-8 lg:mt-12">
       {options.map((option, index) => (
         <button
           className={
             isPicked && correctOption === option
-              ? "border-2 text-sm md:text-sm lg:text-lg py-2 border-green-500 rounded text-white"
+              ? "border-2 text-sm md:text-sm lg:text-lg py-2 bg-green-600 border-green-600 rounded text-white"
               : isPicked && option === wrongAnswer
-              ? "border-2 text-sm rounded md:text-sm lg:text-lg py-2 border-red-600 text-white"
-              : "border text-sm rounded md:text-sm lg:text-lg py-2 border-cyan-600 text-white"
+              ? "border text-sm rounded md:text-sm lg:text-lg py-2 bg-red-600 border-red-600 text-white"
+              : "border text-sm rounded md:text-sm lg:text-lg py-2 border-purple-400 text-white"
           }
           key={index}
           onClick={() => handleCheckAnswer(option, correctOption)}

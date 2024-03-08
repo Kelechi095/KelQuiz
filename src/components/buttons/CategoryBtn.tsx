@@ -16,7 +16,7 @@ const CategoryBtn = ({ category, title }: CategoryBtnProps) => {
 
   return (
     <button
-      className="mt-3 py-3 px-2 md:px-8 text-sm text-white rounded bg-zinc-800 transition md:hover:scale-105 duration-200 cursor-pointer"
+      className="mt-3 py-3 px-2 md:px-8 text-sm md:text-base font-semibold text-white rounded bg-zinc-800 transition md:hover:scale-105 duration-200 cursor-pointer"
       onClick={() => handleSelectCategory(category)}
     >
       {title}

@@ -90,21 +90,21 @@ export default function GameScreen() {
   if (isLoading || isFetching) return <Loading />
 
   return (
-    <div className="p-4 py-6 bg-darkBlue h-screen">
-      <div className="flex justify-between items-center px-2 mb-8 lg:px-6">
-        <div className="flex rounded-full h-8 w-8 lg: 16 lg:16 justify-center items-center border-2 border-cyan-500 text-slate-200">
+    <div className="p-4 py-6 bg-zinc-900 h-screen">
+      <div className="flex justify-between items-center px-2 mt-2 mb-12 lg:px-6">
+        <div className="flex rounded-full h-8 w-8 lg: 16 lg:16 justify-center items-center border-2 border-purple-300 text-white">
           <h1 className="text-center font-base text-md lg:text-xl">
             {userScore}
           </h1>
         </div>
         {!isPicked && (
-          <h1 className="text-center font-base text-xl lg:text-2xl text-red-600">
+          <h1 className="text-center font-base text-xl lg:text-2xl text-rose-500">
             00:{setTimer(timer)}
           </h1>
         )}
       </div>
       {questions && (
-        <h1 className="text-center font-medium text-2xl font-serif text-slate-100 mt-8 mb-4 lg:text-4xl">
+        <h1 className="text-center font-medium text-2xl font-serif text-slate-100 mt-8 mb-4 lg:text-4xl md:max-w-[80%] mx-auto">
           {questionIndex + 1}) {removeQuot(questions[questionIndex].question)}
         </h1>
       )}
@@ -123,8 +123,8 @@ export default function GameScreen() {
         <button
           className={
             !isPicked
-              ? "py-2 p-8 text-white w-full max-w-sm lg:max-w-lg bg-gray-700 mt-4 rounded"
-              : "py-2 px-8 bg-cyan-700 w-full max-w-sm lg:max-w-lg mt-4 text-white rounded"
+              ? "p-2 text-white w-full lg:max-w-[70%] bg-zinc-800 mt-4 rounded font-semibold md:text-lg text-sm"
+              : "p-2 bg-zinc-800 w-full lg:max-w-[70%] mt-4 text-white rounded"
           }
           onClick={handleNextQuestion}
           disabled={!isPicked}
@@ -134,15 +134,15 @@ export default function GameScreen() {
             : "Next Question"}
         </button>
       </div>
-      <div className="p-2 grid grid-cols-2 gap-3 max-w-sm mx-auto lg:max-w-lg m-10">
+      <div className="grid grid-cols-2 gap-3 mx-auto w-full md:max-w-[70%] mt-10">
         <button
-          className="p-1 py-2 text-sm bg-red-700 text-white rounded"
+          className=" p-2 text-sm bg-zinc-800 text-white md:text-lg font-semibold rounded"
           onClick={handleEndGame}
         >
           End Quiz
         </button>
         <button
-          className=" p-1 text-sm px-4 bg-green-700 text-white rounded"
+          className="p-2 text-sm bg-zinc-800 text-white md:text-lg font-semibold rounded"
           onClick={handleRestartGame}
         >
           Restart Quiz
