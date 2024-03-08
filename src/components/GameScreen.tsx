@@ -92,7 +92,7 @@ export default function GameScreen() {
   if (isLoading || isFetching) return <Loading />;
 
   return (
-    <div className="p-4 py-6 bg-zinc-900 md:h-screen">
+    <div className="p-4 py-6 bg-zinc-900 md:h-screen min-h-screen">
       <section className="flex justify-between items-center px-2 mt-2 mb-12 lg:px-6">
         <div className="flex rounded-full h-8 w-8 lg: 16 lg:16 justify-center items-center border-2 border-purple-200 text-white">
           <h1 className="text-center font-base text-md lg:text-xl">
@@ -125,8 +125,8 @@ export default function GameScreen() {
         <button
           className={
             !isPicked
-              ? "p-2 text-white w-full lg:max-w-[70%] bg-zinc-800 mt-4 rounded font-semibold md:text-lg text-sm"
-              : "p-2 bg-zinc-800 w-full lg:max-w-[70%] mt-4 text-white rounded text-sm font-semibold md:text-lg"
+              ? "p-2 text-white w-full md:max-w-[70%] bg-zinc-800 mt-4 rounded font-semibold md:text-lg text-sm"
+              : "p-2 bg-zinc-800 w-full md:max-w-[70%] mt-4 text-white rounded text-sm font-semibold md:text-lg "
           }
           onClick={handleNextQuestion}
           disabled={!isPicked}
@@ -136,18 +136,18 @@ export default function GameScreen() {
             : "Next Question"}
         </button>
       </section>
-      <section className="grid grid-cols-2 gap-3 mx-auto w-full md:max-w-[70%] mt-10">
+      <section className="grid grid-cols-2 gap-6 mx-auto w-full md:max-w-[70%] mt-10">
         <button
-          className=" p-2 text-sm bg-zinc-800 text-white md:text-lg font-semibold rounded"
-          onClick={handleEndGame}
-        >
-          End Quiz
-        </button>
-        <button
-          className="p-2 text-sm bg-zinc-800 text-white md:text-lg font-semibold rounded"
+          className="p-2 text-sm bg-zinc-800 text-white md:text-lg font-semibold rounded transition md:hover:scale-105 duration-200"
           onClick={handleRestartGame}
         >
           Restart Quiz
+        </button>
+        <button
+          className=" p-2 text-sm bg-zinc-800 text-white md:text-lg font-semibold rounded transition md:hover:scale-105 duration-200"
+          onClick={handleEndGame}
+        >
+          End Quiz
         </button>
       </section>
     </div>
