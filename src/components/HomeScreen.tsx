@@ -2,7 +2,7 @@ import CategoryBtn from "./buttons/CategoryBtn";
 
 export default function HomeScreen() {
   return (
-    <div className="p-2 h-screen bg-darkBlue">
+    <div className="p-2 md:h-screen bg-darkBlue">
       <nav className="p-4 flex items-center justify-center">
         <h2 className="font-mono tracking-wide text-xl lg:text-3xl font-bold text-cyan-600">
           KELQUIZ
