@@ -4,10 +4,14 @@ import CategoryBtn from "./buttons/CategoryBtn";
 export default function HomeScreen() {
   const [colorIndex, setColorIndex] = useState(0);
   const colorArr = [
-    "text-violet-500",
-    "text-pink-500",
+    "text-purple-200",
+    "text-purple-300",
+    "text-purple-400",
     "text-purple-500",
-    "text-blue-500",
+    "text-purple-400",
+    "text-purple-300",
+    "text-purple-200",
+
   ];
 
   useEffect(() => {
@@ -17,7 +21,7 @@ export default function HomeScreen() {
       } else {
         setColorIndex(0);
       }
-    }, 3000);
+    }, 2000);
     return () => clearInterval(id);
   }, [colorArr.length, colorIndex]);
 
