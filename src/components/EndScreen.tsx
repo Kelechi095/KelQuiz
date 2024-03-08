@@ -1,12 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { endQuiz, startQuiz } from "../redux/quizSlice";
-import { RootState } from "../types/types";
 
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import useGetQuiz from "../hooks/useGetQuiz";
 
 export default function EndScreen() {
-  const { userScore } = useSelector((state: RootState) => state.quiz);
+  const { userScore } = useGetQuiz()
   const dispatch = useDispatch();
 
   const handleRestartGame = () => {

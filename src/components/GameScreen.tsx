@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   endQuiz,
   finishQuiz,
@@ -8,11 +8,11 @@ import {
   startTimer,
 } from "../redux/quizSlice";
 
-import { RootState } from "../types/types";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { removeQuot } from "../utils/removeQuot";
 import Options from "./Options";
+import useGetQuiz from "../hooks/useGetQuiz";
 
 type Questions = {
   type: string;
@@ -30,15 +30,43 @@ export default function GameScreen() {
   const [questions, setQuestions] = useState<Questions[] | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { category, questionIndex, userScore, timer } = useSelector(
-    (state: RootState) => state.quiz
-  );
+  const { category, questionIndex, userScore, timer } = useGetQuiz();
+
+  const api = "https://opentdb.com/api.php?amount=10&category=";
 
   const URL =
     category === "GK"
-      ? "https://opentdb.com/api.php?amount=10&category=9"
+      ? `${api}${9}`
       : category === "BOOKS"
-      ? "https://opentdb.com/api.php?amount=10&category=10"
+      ? `${api}${10}`
+      : category === "CELEBRITIES"
+      ? `${api}${26}`
+      : category === "SPORTS"
+      ? `${api}${21}`
+      : category === "HISTORY"
+      ? `${api}${23}`
+      : category === "MUSIC"
+      ? `${api}${12}`
+      : category === "MOVIES"
+      ? `${api}${11}`
+      : category === "ANIMALS"
+      ? `${api}${27}`
+      : category === "MATHS"
+      ? `${api}${19}`
+      : category === "MYTH"
+      ? `${api}${20}`
+      : category === "TV"
+      ? `${api}${14}`
+      : category === "SCIENCE"
+      ? `${api}${17}`
+      : category === "CARTOONS"
+      ? `${api}${32}`
+      : category === "ANIME"
+      ? `${api}${31}`
+      : category === "GEOGRAPHY"
+      ? `${api}${22}`
+      : category === "GADGETS"
+      ? `${api}${30}`
       : "";
 
   useEffect(() => {
@@ -54,7 +82,7 @@ export default function GameScreen() {
       }
     };
     getQuestions();
-  }, [URL]);
+  }, [URL, category]);
 
   const handleEndGame = () => {
     dispatch(endQuiz());
@@ -111,7 +139,8 @@ export default function GameScreen() {
     return timer;
   };
 
-  if(isLoading) return <h2>Loading...</h2>
+  
+  if (isLoading) return <h2>Loading...</h2>;
 
   return (
     <div className="p-4 py-6 bg-darkBlue h-screen">
@@ -129,8 +158,7 @@ export default function GameScreen() {
       </div>
       {questions && (
         <h1 className="text-center font-medium text-2xl font-serif text-slate-100 mt-8 mb-4 lg:text-4xl">
-          {questionIndex + 1}){" "}
-          {removeQuot(questions[questionIndex].question)}
+          {questionIndex + 1}) {removeQuot(questions[questionIndex].question)}
         </h1>
       )}
 

@@ -1,16 +1,6 @@
-import { useDispatch } from "react-redux";
-import { startQuiz, setCategory } from "../redux/quizSlice";
+import CategoryBtn from "./buttons/CategoryBtn";
 
 export default function HomeScreen() {
-  const dispatch = useDispatch();
-
-
-  const handleSelectCategory = (category: string) => {
-    dispatch(setCategory(category))
-    dispatch(startQuiz());
-
-}
-
   return (
     <div className="p-2 h-screen bg-darkBlue">
       <nav className="p-4 flex items-center justify-center">
@@ -29,19 +19,22 @@ export default function HomeScreen() {
       </div>
 
       <div className="grid grid-cols-1 gap-2 md: lg:grid-cols-4 p-4 max-w-xs lg:max-w-2xl mx-auto">
-        <button
-          className="mt-3 py-2 text-sm text-white border rounded border-cyan-600"
-          onClick={() => handleSelectCategory("GK")}
-        >
-          General Knowledge
-        </button>
-        <button
-          className="mt-3 py-2 text-sm text-white border rounded border-cyan-600"
-          onClick={() => handleSelectCategory("BOOKS")}
-        >
-          Books
-        </button>
-        
+        <CategoryBtn category="GK" title="General Knowledge" />
+        <CategoryBtn category="BOOKS" title="Books" />
+        <CategoryBtn category="CELEBRITIES" title="Celebrities" />
+        <CategoryBtn category="SPORTS" title="Sports" />
+        <CategoryBtn category="HISTORY" title="History" />
+        <CategoryBtn category="MUSIC" title="Music" />
+        <CategoryBtn category="MOVIES" title="Movies" />
+        <CategoryBtn category="ANIMALS" title="Animals" />
+        <CategoryBtn category="MATHS" title="Mathematics" />
+        <CategoryBtn category="MYTH" title="Mythology" />
+        <CategoryBtn category="TV" title="Television" />
+        <CategoryBtn category="SCIENCE" title="Science" />
+        <CategoryBtn category="GADGETS" title="Gadgets" />
+        <CategoryBtn category="ANIME" title="Anime/Manga" />
+        <CategoryBtn category="CARTOONS" title="Cartoons" />
+        <CategoryBtn category="GEOGRAPHY" title="Geography" />
       </div>
     </div>
   );

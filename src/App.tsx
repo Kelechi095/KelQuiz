@@ -1,11 +1,11 @@
-import { useSelector } from "react-redux";
-import { RootState } from "./types/types";
 import HomeScreen from "./components/HomeScreen";
 import EndScreen from "./components/EndScreen";
 import GameScreen from "./components/GameScreen";
+import useGetQuiz from "./hooks/useGetQuiz";
 
 function App() {
-  const { gameState } = useSelector((state: RootState) => state.quiz);
+  
+  const {gameState} = useGetQuiz()
 
   if (gameState === "off") {
     return <HomeScreen />;
