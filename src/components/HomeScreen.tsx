@@ -2,7 +2,7 @@ import CategoryBtn from "./buttons/CategoryBtn";
 
 export default function HomeScreen() {
   return (
-    <div className="p-2 md:h-screen bg-darkBlue">
+    <div className="p-2 md:h-screen bg-darkBlue md:flex flex-col justify-center">
       <nav className="p-4 flex items-center justify-center">
         <h2 className="font-mono tracking-wide text-xl lg:text-3xl font-bold text-cyan-600">
           KELQUIZ
@@ -18,7 +18,7 @@ export default function HomeScreen() {
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 gap-2 md: lg:grid-cols-4 p-4 max-w-xs lg:max-w-2xl mx-auto">
+      <div className="grid grid-cols-1 gap-4 md: lg:grid-cols-4 p-4 max-w-xs md:max-w-6xl mx-auto ">
         <CategoryBtn category="GK" title="General Knowledge" />
         <CategoryBtn category="BOOKS" title="Books" />
         <CategoryBtn category="CELEBRITIES" title="Celebrities" />

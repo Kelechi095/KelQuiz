@@ -5,8 +5,8 @@ interface OptionsProps {
   correctOption: string;
   incorrectOptions: string[];
   isPicked: boolean;
-  wrongAnswer: number | null;
-  handleCheckAnswer: (answer: number | string, index: number) => void;
+  wrongAnswer: string | null;
+  handleCheckAnswer: (answer: string, correctOption: string) => void;
 }
 
 const Options = ({
@@ -47,12 +47,12 @@ const Options = ({
           className={
             isPicked && correctOption === option
               ? "border-2 text-sm md:text-sm lg:text-lg py-2 border-green-500 rounded text-white"
-              : isPicked && index === wrongAnswer
+              : isPicked && option === wrongAnswer
               ? "border-2 text-sm rounded md:text-sm lg:text-lg py-2 border-red-600 text-white"
               : "border text-sm rounded md:text-sm lg:text-lg py-2 border-cyan-600 text-white"
           }
           key={index}
-          onClick={() => handleCheckAnswer(correctOption, index)}
+          onClick={() => handleCheckAnswer(option, correctOption)}
           disabled={isPicked === true}
         >
           {removeQuot(option)}

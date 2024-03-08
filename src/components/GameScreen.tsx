@@ -26,7 +26,7 @@ type Questions = {
 export default function GameScreen() {
   const dispatch = useDispatch();
   const [isPicked, setIsPicked] = useState<boolean>(false);
-  const [wrongAnswer, setWrongAnswer] = useState<number | null>(null);
+  const [wrongAnswer, setWrongAnswer] = useState<string | null>(null);
   const [questions, setQuestions] = useState<Questions[] | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -92,13 +92,13 @@ export default function GameScreen() {
     setIsPicked(false);
   };
 
-  const handleCheckAnswer = (answer: number | string, index: number) => {
-    if (answer === index) {
+  const handleCheckAnswer = (answer: string, correctOption: string) => {
+    if (answer === correctOption) {
       dispatch(increaseUserScore(timer));
       setIsPicked(true);
     } else {
       setIsPicked(true);
-      setWrongAnswer(index);
+      setWrongAnswer(answer);
     }
   };
 
