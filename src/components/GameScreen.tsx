@@ -14,6 +14,7 @@ import Options from "./Options";
 import useGetQuiz from "../hooks/useGetQuiz";
 import { useQueryClient } from "react-query";
 import useGetQuestions from "../hooks/useGetQuestions";
+import Loading from "./Loading";
 
 /* type Questions = {
   type: string;
@@ -94,7 +95,7 @@ export default function GameScreen() {
     return timer;
   };
 
-  if (isLoading || isFetching) return <h2>Loading...</h2>;
+  if (isLoading || isFetching) return <Loading />
 
   return (
     <div className="p-4 py-6 bg-darkBlue h-screen">
