@@ -2,23 +2,19 @@ import CategoryBtn from "./buttons/CategoryBtn";
 
 export default function HomeScreen() {
   return (
-    <div className="p-2 md:h-screen bg-darkBlue md:flex flex-col justify-center">
-      <nav className="p-4 flex items-center justify-center">
-        <h2 className="font-mono tracking-wide text-xl lg:text-3xl font-bold text-cyan-600">
-          KELQUIZ
-        </h2>
-      </nav>
-      <h1 className="text-4xl max-w-xs mx-auto text-center mt-2 md:text-6xl lg:text-7xl md:max-w-lg  lg:max-w-4xl font-serif p-2 text-white">
+    <div className="p-2 md:h-screen bg-zinc-900 md:flex flex-col justify-center">
+      
+      <h1 className="text-4xl max-w-xs mb-8 font-semibold font-mono text-white mx-auto text-center mt-2 md:text-6xl lg:text-7xl md:max-w-lg lg:max-w-4xl p-2">
         Welcome to KelQuiz
       </h1>
 
       <div>
-        <h2 className="text-lg font-base max-w-md md:max-w-lg lg:max-w-3xl lg:text-xl font-semibold text-center mx-auto mt-10 p-3 lg:mt-8 text-cyan-600">
+        <h2 className="text-lg md:text-xl p-2 text-white w-fit mx-auto font-mono font-semibold">
           PICK A CATEGORY
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 md: lg:grid-cols-4 p-4 max-w-xs md:max-w-6xl mx-auto ">
+      <div className="grid grid-cols-1 gap-4 md:lg:grid-cols-4 md:p-8 p-4 md:max-w-6xl mx-auto border border-dashed border-neutral-500 md:mt-3 ">
         <CategoryBtn category="GK" title="General Knowledge" />
         <CategoryBtn category="BOOKS" title="Books" />
         <CategoryBtn category="CELEBRITIES" title="Celebrities" />

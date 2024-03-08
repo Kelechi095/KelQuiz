@@ -2,9 +2,13 @@ import { store } from "../redux/store"
 export type RootState = ReturnType<typeof store.getState>
 
 
-export type Quiz = {
-    id: number,
+
+export type Questions = {
+    type: string;
+    difficulty: string;
+    category: string;
     question: string;
-    options: string[];
-    answer: number
-}
+    correct_answer: string;
+    incorrect_answers: string[];
+  };
+  

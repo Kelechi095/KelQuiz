@@ -16,15 +16,7 @@ import { useQueryClient } from "react-query";
 import useGetQuestions from "../hooks/useGetQuestions";
 import Loading from "./Loading";
 
-/* type Questions = {
-  type: string;
-  difficulty: string;
-  category: string;
-  question: string;
-  correct_answer: string;
-  incorrect_answers: string[];
-};
- */
+ 
 export default function GameScreen() {
   const dispatch = useDispatch();
   const [isPicked, setIsPicked] = useState<boolean>(false);
