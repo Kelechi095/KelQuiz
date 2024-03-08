@@ -8,15 +8,14 @@ import {
   startTimer,
 } from "../redux/quizSlice";
 
-import { useCallback, useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from "react";
 import { removeQuot } from "../utils/removeQuot";
 import Options from "./Options";
 import useGetQuiz from "../hooks/useGetQuiz";
-import { useQuery, useQueryClient } from "react-query";
+import { useQueryClient } from "react-query";
 import useGetQuestions from "../hooks/useGetQuestions";
 
-type Questions = {
+/* type Questions = {
   type: string;
   difficulty: string;
   category: string;
@@ -24,7 +23,7 @@ type Questions = {
   correct_answer: string;
   incorrect_answers: string[];
 };
-
+ */
 export default function GameScreen() {
   const dispatch = useDispatch();
   const [isPicked, setIsPicked] = useState<boolean>(false);
