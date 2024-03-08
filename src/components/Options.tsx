@@ -47,7 +47,7 @@ const Options = ({
               ? "border-2 text-sm md:text-sm lg:text-lg py-2 bg-green-600 border-green-600 rounded text-white"
               : isPicked && option === wrongAnswer
               ? "border text-sm rounded md:text-sm lg:text-lg py-2 bg-red-600 border-red-600 text-white"
-              : "border text-sm rounded md:text-sm lg:text-lg py-2 border-purple-400 text-white"
+              : "border text-sm rounded md:text-sm lg:text-lg py-2 border-purple-200 text-white"
           }
           key={index}
           onClick={() => handleCheckAnswer(option, correctOption)}

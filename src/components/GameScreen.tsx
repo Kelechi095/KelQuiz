@@ -92,7 +92,7 @@ export default function GameScreen() {
   return (
     <div className="p-4 py-6 bg-zinc-900 h-screen">
       <div className="flex justify-between items-center px-2 mt-2 mb-12 lg:px-6">
-        <div className="flex rounded-full h-8 w-8 lg: 16 lg:16 justify-center items-center border-2 border-purple-300 text-white">
+        <div className="flex rounded-full h-8 w-8 lg: 16 lg:16 justify-center items-center border-2 border-purple-200 text-white">
           <h1 className="text-center font-base text-md lg:text-xl">
             {userScore}
           </h1>

@@ -39,7 +39,7 @@ export default function EndScreen() {
 
             pathTransitionDuration: 0.5,
 
-            pathColor: `rgb(156, 39, 176)`,
+            pathColor: `rgb(192 132 252)`,
             textColor: "white",
             trailColor: "#d6d6d6",
             backgroundColor: "purple",
@@ -48,20 +48,20 @@ export default function EndScreen() {
         ;
       </div>
 
-      <h2 className="font-semibold font-mono mt-4 fond text-xl text-center text-purple-500">
+      <h2 className="font-semibold font-mono mt-4 fond text-xl text-center text-purple-200">
         You answered {userScore / 10} out of 10 questions
       </h2>
 
       <div className="flex justify-center gap-4 mt-8">
         <button
-          className="border-2 rounded border-purple-500 p-1 px-4 text-white"
+          className="border-2 rounded border-purple-200 p-1 px-4 text-white"
           onClick={handleRestartGame}
         >
           Restart Quiz
         </button>
 
         <button
-          className="border-2 rounded border-purple-500 p-1 px-8 text-white"
+          className="border-2 rounded border-purple-200 p-1 px-8 text-white"
           onClick={handleEndGame}
         >
           End Quiz
