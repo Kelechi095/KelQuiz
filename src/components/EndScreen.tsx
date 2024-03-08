@@ -4,16 +4,26 @@ import { endQuiz, startQuiz } from "../redux/quizSlice";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import useGetQuiz from "../hooks/useGetQuiz";
+import useGetQuestions from "../hooks/useGetQuestions";
+import { useQueryClient } from "react-query";
 
 export default function EndScreen() {
   const { userScore } = useGetQuiz()
   const dispatch = useDispatch();
 
-  const handleRestartGame = () => {
-    dispatch(startQuiz());
-  };
+  const {refetch} = useGetQuestions()
+
+  const queryClient = useQueryClient()
+
   const handleEndGame = () => {
     dispatch(endQuiz());
+    queryClient.invalidateQueries('questions')
+  };
+
+  const handleRestartGame = () => {
+    queryClient.invalidateQueries("question")
+    refetch()
+    dispatch(startQuiz());
   };
 
   const percentage = userScore;

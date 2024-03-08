@@ -16,7 +16,6 @@ const Options = ({
   wrongAnswer,
   handleCheckAnswer,
 }: OptionsProps) => {
-  console.log(incorrectOptions);
 
   const allOptions = useMemo(
     () => [...incorrectOptions, correctOption],
@@ -38,7 +37,6 @@ const Options = ({
     () => shuffleOptions(allOptions),
     [shuffleOptions, allOptions]
   );
-
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 content-center gap-5 max-w-sm lg:max-w-lg mx-auto m-8 lg:mt-12">

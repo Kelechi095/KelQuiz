@@ -8,11 +8,13 @@ import {
   startTimer,
 } from "../redux/quizSlice";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { removeQuot } from "../utils/removeQuot";
 import Options from "./Options";
 import useGetQuiz from "../hooks/useGetQuiz";
+import { useQuery, useQueryClient } from "react-query";
+import useGetQuestions from "../hooks/useGetQuestions";
 
 type Questions = {
   type: string;
@@ -27,67 +29,21 @@ export default function GameScreen() {
   const dispatch = useDispatch();
   const [isPicked, setIsPicked] = useState<boolean>(false);
   const [wrongAnswer, setWrongAnswer] = useState<string | null>(null);
-  const [questions, setQuestions] = useState<Questions[] | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
 
-  const { category, questionIndex, userScore, timer } = useGetQuiz();
+  const {questionIndex, userScore, timer } = useGetQuiz();
 
-  const api = "https://opentdb.com/api.php?amount=10&category=";
+  const queryClient = useQueryClient()
 
-  const URL =
-    category === "GK"
-      ? `${api}${9}`
-      : category === "BOOKS"
-      ? `${api}${10}`
-      : category === "CELEBRITIES"
-      ? `${api}${26}`
-      : category === "SPORTS"
-      ? `${api}${21}`
-      : category === "HISTORY"
-      ? `${api}${23}`
-      : category === "MUSIC"
-      ? `${api}${12}`
-      : category === "MOVIES"
-      ? `${api}${11}`
-      : category === "ANIMALS"
-      ? `${api}${27}`
-      : category === "MATHS"
-      ? `${api}${19}`
-      : category === "MYTH"
-      ? `${api}${20}`
-      : category === "TV"
-      ? `${api}${14}`
-      : category === "SCIENCE"
-      ? `${api}${17}`
-      : category === "CARTOONS"
-      ? `${api}${32}`
-      : category === "ANIME"
-      ? `${api}${31}`
-      : category === "GEOGRAPHY"
-      ? `${api}${22}`
-      : category === "GADGETS"
-      ? `${api}${30}`
-      : "";
-
-  useEffect(() => {
-    const getQuestions = async () => {
-      setIsLoading(true);
-      try {
-        const data = await axios.get(URL);
-        setQuestions(data.data.results);
-        setIsLoading(false);
-      } catch (err) {
-        console.log(err);
-        setIsLoading(false);
-      }
-    };
-    getQuestions();
-  }, [URL, category]);
-
+  const {questions, refetch, isLoading, isFetching} = useGetQuestions()
+  
   const handleEndGame = () => {
     dispatch(endQuiz());
+    queryClient.invalidateQueries('questions')
   };
+
   const handleRestartGame = () => {
+    queryClient.invalidateQueries("question")
+    refetch()
     dispatch(startQuiz());
     setIsPicked(false);
   };
@@ -139,8 +95,7 @@ export default function GameScreen() {
     return timer;
   };
 
-  
-  if (isLoading) return <h2>Loading...</h2>;
+  if (isLoading || isFetching) return <h2>Loading...</h2>;
 
   return (
     <div className="p-4 py-6 bg-darkBlue h-screen">
