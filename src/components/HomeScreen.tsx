@@ -27,7 +27,7 @@ export default function HomeScreen() {
 
   return (
     <div className="p-2 md:h-screen bg-zinc-900 md:flex flex-col justify-center">
-      <h1 className="text-4xl max-w-xs my-8 md:mt-0 md:mb-8 font-semibold font-mono text-white mx-auto text-center mt-2 md:text-6xl lg:text-7xl md:max-w-lg lg:max-w-4xl p-2">
+      <h1 className="text-4xl max-w-xs my-8 md:mt-0 md:mb-8 font-semibold font-mono text-white mx-auto text-center mt-8 md:text-6xl lg:text-7xl md:max-w-lg lg:max-w-4xl p-2">
         WELCOME TO KELQUIZ
       </h1>
 
