@@ -11,7 +11,6 @@ export default function HomeScreen() {
     "text-purple-400",
     "text-purple-300",
     "text-purple-200",
-
   ];
 
   useEffect(() => {
@@ -42,21 +41,21 @@ export default function HomeScreen() {
       </section>
 
       <section className="grid grid-cols-1 gap-4 md:lg:grid-cols-4 md:p-4 p-4 md:max-w-6xl mx-auto border border-dashed border-neutral-500 md:mt-3 mb-6 ">
-        <CategoryBtn category="GK" title="General Knowledge" />
+        <CategoryBtn category="ANIMALS" title="Animals" />
+        <CategoryBtn category="ANIME" title="Anime/Manga" />
         <CategoryBtn category="BOOKS" title="Books" />
+        <CategoryBtn category="CARTOONS" title="Cartoons" />
         <CategoryBtn category="CELEBRITIES" title="Celebrities" />
+        <CategoryBtn category="GADGETS" title="Gadgets" />
+        <CategoryBtn category="GK" title="General Knowledge" />
         <CategoryBtn category="SPORTS" title="Sports" />
         <CategoryBtn category="HISTORY" title="History" />
         <CategoryBtn category="MUSIC" title="Music" />
         <CategoryBtn category="MOVIES" title="Movies" />
-        <CategoryBtn category="ANIMALS" title="Animals" />
         <CategoryBtn category="MATHS" title="Mathematics" />
         <CategoryBtn category="MYTH" title="Mythology" />
         <CategoryBtn category="TV" title="Television" />
         <CategoryBtn category="SCIENCE" title="Science" />
-        <CategoryBtn category="GADGETS" title="Gadgets" />
-        <CategoryBtn category="ANIME" title="Anime/Manga" />
-        <CategoryBtn category="CARTOONS" title="Cartoons" />
         <CategoryBtn category="GEOGRAPHY" title="Geography" />
       </section>
     </div>

@@ -10,37 +10,37 @@ const useGetQuestions = () => {
 
   const URL =
     category === "GK"
-      ? `${api}${9}`
+      ? `${api}${9}${`&type=multiple`}`
       : category === "BOOKS"
-      ? `${api}${10}`
+      ? `${api}${10}${`&type=multiple`}`
       : category === "CELEBRITIES"
-      ? `${api}${26}`
+      ? `${api}${26}${`&type=multiple`}`
       : category === "SPORTS"
-      ? `${api}${21}`
+      ? `${api}${21}${`&type=multiple`}`
       : category === "HISTORY"
-      ? `${api}${23}`
+      ? `${api}${23}${`&type=multiple`}`
       : category === "MUSIC"
-      ? `${api}${12}`
+      ? `${api}${12}${`&type=multiple`}`
       : category === "MOVIES"
-      ? `${api}${11}`
+      ? `${api}${11}${`&type=multiple`}`
       : category === "ANIMALS"
-      ? `${api}${27}`
+      ? `${api}${27}${`&type=multiple`}`
       : category === "MATHS"
-      ? `${api}${19}`
+      ? `${api}${19}${`&type=multiple`}`
       : category === "MYTH"
-      ? `${api}${20}`
+      ? `${api}${20}${`&type=multiple`}`
       : category === "TV"
-      ? `${api}${14}`
+      ? `${api}${14}${`&type=multiple`}`
       : category === "SCIENCE"
-      ? `${api}${17}`
+      ? `${api}${17}${`&type=multiple`}`
       : category === "CARTOONS"
-      ? `${api}${32}`
+      ? `${api}${32}${`&type=multiple`}`
       : category === "ANIME"
-      ? `${api}${31}`
+      ? `${api}${31}${`&type=multiple`}`
       : category === "GEOGRAPHY"
-      ? `${api}${22}`
+      ? `${api}${22}${`&type=multiple`}`
       : category === "GADGETS"
-      ? `${api}${30}`
+      ? `${api}${30}${`&type=multiple`}`
       : "";
 
   const fetchQuestions = async () => {
