@@ -125,8 +125,8 @@ export default function GameScreen() {
         <button
           className={
             !isPicked
-              ? "p-2 text-white w-full md:max-w-[70%] bg-zinc-800 mt-4 rounded font-semibold md:text-lg text-sm"
-              : "p-2 bg-zinc-800 w-full md:max-w-[70%] mt-4 text-white rounded text-sm font-semibold md:text-lg "
+              ? "p-2 text-white w-full md:max-w-[70%] bg-zinc-800 mt-4 rounded font-semibold md:text-lg text-sm active:bg-zinc-800 focus:bg-zinc-800"
+              : "p-2 bg-zinc-800 w-full md:max-w-[70%] mt-4 text-white rounded text-sm font-semibold md:text-lg active:bg-zinc-800 focus:bg-zinc-800"
           }
           onClick={handleNextQuestion}
           disabled={!isPicked}
