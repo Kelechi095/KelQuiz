@@ -35,7 +35,7 @@ export default function GameScreen() {
   };
 
   const handleRestartGame = () => {
-    queryClient.invalidateQueries("question");
+    queryClient.invalidateQueries("questions");
     refetch();
     dispatch(startQuiz());
     setIsPicked(false);

@@ -20,7 +20,7 @@ export default function EndScreen() {
   };
 
   const handleRestartGame = () => {
-    queryClient.invalidateQueries("question");
+    queryClient.invalidateQueries("questions");
     refetch();
     dispatch(startQuiz());
   };
