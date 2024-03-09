@@ -21,7 +21,7 @@ export default function HomeScreen() {
       } else {
         setColorIndex(0);
       }
-    }, 2000);
+    }, 1000);
     return () => clearInterval(id);
   }, [colorArr.length, colorIndex]);
 

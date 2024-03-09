@@ -15,8 +15,8 @@ export default function EndScreen() {
   const queryClient = useQueryClient();
 
   const handleEndGame = () => {
-    dispatch(endQuiz());
     queryClient.invalidateQueries("questions");
+    dispatch(endQuiz());
   };
 
   const handleRestartGame = () => {
