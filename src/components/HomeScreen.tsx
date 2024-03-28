@@ -26,7 +26,7 @@ export default function HomeScreen() {
   }, [colorArr.length, colorIndex]);
 
   return (
-    <div className="p-2 md:h-screen bg-zinc-900 md:flex flex-col justify-center">
+    <div className="p-2 md:min-h-screen bg-zinc-900 md:flex flex-col justify-center">
       <h1 className="text-4xl max-w-xs my-8 md:mt-0 md:mb-8 font-semibold font-mono text-white mx-auto text-center mt-8 md:text-6xl lg:text-7xl md:max-w-lg lg:max-w-4xl p-2">
         WELCOME TO KELQUIZ
       </h1>
@@ -41,7 +41,7 @@ export default function HomeScreen() {
         </h2>
       </section>
 
-      <section className="grid grid-cols-1 gap-4 md:lg:grid-cols-4 md:p-4 p-4 md:max-w-6xl mx-auto border border-dashed border-neutral-500 md:mt-3 mb-6 ">
+      <section className="grid grid-cols-1 gap-4 lg:grid-cols-4 md:grid-cols-2 md:p-4 p-4 md:w-full lg:max-w-6xl mx-auto border border-dashed border-neutral-500 md:mt-3 mb-6 ">
         <CategoryBtn category="GK" title="General Knowledge" />
         <CategoryBtn category="BOOKS" title="Books" />
         <CategoryBtn category="CELEBRITIES" title="Celebrities" />
